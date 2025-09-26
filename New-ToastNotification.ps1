@@ -2509,14 +2509,42 @@ else {
 }
 
 # Toast used for PendingReboot check and considering OS uptime
-if (($PendingRebootUptime -eq "True") -AND ($Uptime -gt $MaxUptimeDays)) {
-    Write-Log -Message "Toast notification is used in regards to pending reboot. Uptime count is greater than $MaxUptimeDays"
-    Display-ToastNotification
-    # Stopping script. No need to accidently run further toasts
-    break
-}
-else {
-    Write-Log -Level Warn -Message "Conditions for displaying toast notifications for pending reboot uptime are not fulfilled"
+if ($PendingRebootUptime -eq "True") {
+    if ($Uptime -ge 7 -and $Uptime -lt 9) {
+        # Day 7-8: Progressive Reminder
+        $TitleText = $XmlLang.Text | Where-Object {$_.Name -eq 'RebootDay7Title'} | Select-Object -ExpandProperty '#text'
+        $BodyText1 = $XmlLang.Text | Where-Object {$_.Name -eq 'RebootDay7Message'} | Select-Object -ExpandProperty '#text'
+        $ActionButton1Content = "Restart Now"
+        $ActionButton2Content = "Remind Me Later"
+        $ActionButton1Enabled = "True"
+        $ActionButton2Enabled = "True"
+        $DismissButtonEnabled = "True"
+        Display-ToastNotification
+        break
+    } elseif ($Uptime -eq 9) {
+        # Day 9: Add Urgency
+        $TitleText = $XmlLang.Text | Where-Object {$_.Name -eq 'RebootDay9Title'} | Select-Object -ExpandProperty '#text'
+        $BodyText1 = $XmlLang.Text | Where-Object {$_.Name -eq 'RebootDay9Message'} | Select-Object -ExpandProperty '#text'
+        $ActionButton1Content = "Restart Now"
+        $ActionButton2Content = "Later"
+        $ActionButton1Enabled = "True"
+        $ActionButton2Enabled = "True"
+        $DismissButtonEnabled = "True"
+        Display-ToastNotification
+        break
+    } elseif ($Uptime -ge 10) {
+        # Day 10+: Final Warning
+        $TitleText = $XmlLang.Text | Where-Object {$_.Name -eq 'RebootDay10Title'} | Select-Object -ExpandProperty '#text'
+        $BodyText1 = $XmlLang.Text | Where-Object {$_.Name -eq 'RebootDay10Message'} | Select-Object -ExpandProperty '#text'
+        $ActionButton1Content = "Restart Now"
+        $ActionButton1Enabled = "True"
+        $ActionButton2Enabled = "False"
+        $DismissButtonEnabled = "False"
+        Display-ToastNotification
+        break
+    } else {
+        Write-Log -Level Warn -Message "Conditions for displaying toast notifications for pending reboot uptime are not fulfilled"
+    }
 }
 
 # Toast used for pendingReboot check and considering checks in registry
