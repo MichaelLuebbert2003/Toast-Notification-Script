@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Configuration>
+	<Feature Name="PendingRebootUptime" Enabled="True" />	<!-- Enables the toast for reminding users of restarting their device if it exceeds the uptime defined in MaxUptimeDays -->
+	<Feature Name="PendingRebootCheck" Enabled="True" />	<!-- Enables the toast for reminding users of pending reboots found in registry/WMI -->
+	<Option Name="MaxUptimeDays" Value="-7" />	<!-- When using the toast for checking for pending reboots. A reboot is considered pending if computer uptime exceeds the value set here -->
+	<Option Name="PendingRebootUptimeText" Enabled="True" />	<!-- Adds an additional group to the toast with text about the uptime of the computer -->
+	<Option Name="PendingRebootCheckText" Enabled="True" />	<!-- Adds an additional group to the toast with text -->
+	<Option Name="ActionButton1" Enabled="True" />	<!-- Enables or disables the action button -->
+	<Option Name="DismissButton" Enabled="True" /> <!-- Enables or disables the dismiss button -->
+	<Option Name="SnoozeButton" Enabled="False" /> <!-- Enables or disables the snooze button -->
+	<Option Name="Action1" Value="ToastReboot:" />	<!-- Action taken when using the Action button. Can be any protocol in Windows -->
+	<Option Name="Scenario" Type="reminder" />	<!-- Possible values are: reminder | short | long -->
+	<Option Name="CustomNotificationApp" Value="Company IT Support" />	<!-- Set custom notification app name -->
+	<Option Name="HeroImageName" Value="Nap-HeroToast.jpg" />	<!-- Hero image displayed at the top of the toast -->
+	<Text Option="GreetGivenName" Enabled="True" />	<!-- Enable or disable given name greeting -->
+	<!-- Toast notification texts in different languages -->
+	<en-US>
+        <Text Name="PendingRebootUptimeText">                    Your computer is required to restart due to having exceeded the maximum allowed uptime.</Text>
+        <Text Name="PendingRebootCheckText">                    Reason: Pending reboots was found in registry or WMI.</Text>
+        <Text Name="TitleText">Hi {givenname}! Restart Required</Text>
+        <Text Name="BodyText1">                    Your computer needs to be restarted to complete important updates or changes.
+                    Please save your work and restart at your earliest convenience.</Text>
+        <Text Name="ActionButton1">Restart Now</Text>
+        <Text Name="SnoozeButton">Snooze</Text>
+        <Text Name="SnoozeText">Select snooze time:</Text>
+        <Text Name="MinutesText">Minutes</Text>
+        <Text Name="HourText">Hour</Text>
+        <Text Name="HoursText">Hours</Text>
+    </en-US>
+</Configuration>

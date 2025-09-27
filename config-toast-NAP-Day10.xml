@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Configuration>
+    <!-- Day 10+: Force reboot with countdown -->
+    <Feature Name="Toast" Enabled="True" />
+    <Feature Name="UpgradeOS" Enabled="False" />
+    <Feature Name="PendingRebootUptime" Enabled="True" Value="10" />
+    <Feature Name="PendingRebootCheck" Enabled="True" />
+    <Feature Name="ADPasswordExpiration" Enabled="False" />
+    <Option Name="CustomNotificationApp" Enabled="True" Value="NewAmsterdam Pharma System Administrator" />
+    <Option Name="LogoImageName" Value="ToastLogoImageNAP.png" />
+    <Option Name="HeroImageName" Value="Nap-HeroToast.jpg" />
+    <Option Name="Action" Enabled="True" Value="ToastReboot:" />
+    <Option Name="DismissButton" Enabled="False" />
+    <Option Name="SnoozeButton" Enabled="False" />
+    <Option Name="Scenario" Value="alarm" />
+    <Option Name="ForceReboot" Enabled="True" Value="60" />
+    <Text Option="GreetGivenName" Enabled="True" />
+    <Text Option="MultiLanguageSupport" Enabled="False" />
+    <Text>
+        <Greeting>SYSTEM ADMINISTRATOR</Greeting>
+        <Greeting>SYSTEM ADMINISTRATOR</Greeting>  
+        <Greeting>SYSTEM ADMINISTRATOR</Greeting>
+        <Title>🚨 Automatic Restart Imminent 🚨</Title>
+        <Body>                    ⚠️ Your computer will restart automatically today to maintain security and performance.
+                    Please save your work and restart now. 💾</Body>
+        <ActionButtonContent>Restart Now</ActionButtonContent>
+        <ComputerUptimeText>Computer uptime:</ComputerUptimeText>
+        <ComputerUptimeDaysText>days</ComputerUptimeDaysText>
+    </Text>
+</Configuration>

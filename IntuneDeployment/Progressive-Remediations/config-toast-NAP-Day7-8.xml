@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Configuration>
+    <!-- Day 7-8: Initial gentle reminder -->
+    <Feature Name="Toast" Enabled="True" />
+    <Feature Name="UpgradeOS" Enabled="False" />
+    <Feature Name="PendingRebootUptime" Enabled="True" Value="7" />
+    <Feature Name="PendingRebootCheck" Enabled="True" />
+    <Feature Name="ADPasswordExpiration" Enabled="False" />
+    <Option Name="CustomNotificationApp" Enabled="True" Value="NewAmsterdam Pharma Notification" />
+    <Option Name="LogoImageName" Value="ToastLogoImageNAP.png" />
+    <Option Name="HeroImageName" Value="Nap-HeroToast.jpg" />
+    <Option Name="Action" Enabled="True" Value="ToastReboot:" />
+    <Option Name="DismissButton" Enabled="True" />
+    <Option Name="SnoozeButton" Enabled="False" />
+    <Option Name="Scenario" Value="reminder" />
+    <Text Option="GreetGivenName" Enabled="True" />
+    <Text Option="MultiLanguageSupport" Enabled="False" />
+    <Text>
+        <Greeting>Good morning</Greeting>
+        <Greeting>Good afternoon</Greeting>  
+        <Greeting>Good evening</Greeting>
+        <Title>🔄 Restart Required Soon</Title>
+        <Body>                    Your computer has been running for 7 days.
+                    To keep it secure and stable, please restart within the next 3 days.
+                    If not restarted by Day 10, it will reboot automatically.</Body>
+        <DismissButtonContent>Remind Me Later</DismissButtonContent>
+        <ActionButtonContent>Restart Now</ActionButtonContent>
+        <MinutesText>minute(s)</MinutesText>
+        <HourText>hour</HourText>
+        <HoursText>hours</HoursText>
+        <ComputerUptimeText>Computer uptime:</ComputerUptimeText>
+        <ComputerUptimeDaysText>days</ComputerUptimeDaysText>
+    </Text>
+</Configuration>
